@@ -46,6 +46,7 @@ export const Introduction = styled.header`
         border: 2px solid black;
         width: 65%;
         max-width: 55rem;
+        padding-top: 2rem;
     }
 
     .headerText{
@@ -74,4 +75,39 @@ export const LogoFmei = styled.div`
 
 export const ScreenshotDashboardFmei = styled.div`
     border: 2px solid black;
-`; 
+`;
+
+export const KeyIndicatorsText = styled.div`
+    width: 100%;
+    height: auto;
+    padding: 5rem 2rem;
+    background-image: linear-gradient(#0000ff, #2222ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h2{
+        color: var(--white);
+        text-align: center;
+        text-shadow: 1rem 0.6rem 1.3rem #000;
+        line-height: 3.5rem;
+    }
+`;
+
+export const UpButton = styled.div`
+    border-radius: 50%;
+    padding: .5rem;
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    opacity: .5;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    transition: all .5s ease;
+
+    &:hover{
+        opacity: 1;
+    }
+`;
