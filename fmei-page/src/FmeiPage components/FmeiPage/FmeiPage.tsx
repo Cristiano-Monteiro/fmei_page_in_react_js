@@ -1,3 +1,15 @@
+import { GlobalStyle } from '../Global';
+import { 
+    FmeiPageContainer, 
+    NavBar, 
+    LogoKatuDV,
+    MenuButton, 
+    MenuOptions,
+    Introduction,
+    LogoFmei,
+    ScreenshotDashboardFmei
+} from './FmeiPage.styles';
+
 import LogoKatu from '../../assets/imgs/logo_katu_dv.png';
 import LogoFMEI from '../../assets/imgs/logo_facilita_mei.png';
 
@@ -24,44 +36,44 @@ import FacebookIcon from '../../assets/icons/facebook_icon.png';
 
 export function FmeiPage(){
     return(
-        <div>    
-            <nav className="navigation_bar">
-                <div className="logo_katu_dv">
+        <FmeiPageContainer>    
+            <NavBar>
+                <LogoKatuDV>
                     <a href="https://www.katudv.com/">
                         <img src={LogoKatu} alt="logo da startup Katu D.V" />
                     </a>
-                </div>
-                <div className="botao_menu" onclick="menu_opcoes_on()">
+                </LogoKatuDV>
+                <MenuButton onclick="menu_opcoes_on()">
                     <img src={MenuIcon} alt="botão de menu" />
-                </div>
-                <div className="opcoes_menu">
+                </MenuButton>
+                <MenuOptions>
                     <a href="https://www.katudv.com/">Página Inicial</a>
-                    <a href="https://forms.gle/DkQ4BqauTgTkmpv56">
-                        Ter Acesso Antecipado
-                    </a>
+                    <a href="https://forms.gle/DkQ4BqauTgTkmpv56">Ter Acesso Antecipado</a>
+                </MenuOptions>
+            </NavBar>
+            <Introduction>
+                <div className='container'>
+                    <LogoFmei>
+                        <img 
+                            src={LogoFMEI} 
+                            alt="logo do Facilita MEI"
+                        />
+                    </LogoFmei>
+                    <h1>FacilitaMEI</h1>
+                    <p className="headerText">
+                        Visão geral de seu negócio a um clique de distância.
+                        Clique abaixo para ter acesso antecipado ao produto.
+                    </p>
+                    <a href="https://forms.gle/DkQ4BqauTgTkmpv56">Clique Aqui</a>
+                    <p>Oferta válida por tempo limitado.</p>
                 </div>
-            </nav>
-            <header>
-                <div className="logo_facilita_mei">
-                    <img 
-                        src={LogoFMEI} 
-                        alt="logo do Facilita MEI"
-                    />
-                </div>
-                <h1>FacilitaMEI</h1>
-                <p className="header_text">
-                    Visão geral de seu negócio a um clique de distância.
-                    Clique abaixo para ter acesso antecipado ao produto.
-                </p>
-                <a href="https://forms.gle/DkQ4BqauTgTkmpv56">Clique Aqui</a>
-                <p>Oferta válida por tempo limitado.</p>
-                <div className="screenshot_dashboard_fmei">
+                <ScreenshotDashboardFmei>
                     <img 
                         src={ScreenshotDashboard} 
                         alt="imagem da ferramenta Facilita MEI"
                     />
-                </div>
-            </header>
+                </ScreenshotDashboardFmei>
+            </Introduction>
             <section className="explicacao_ferramenta_fmei">
                 <section className="section_explicacao_1">
                     <div className="logo_e_texto_section_explicacao">
@@ -251,6 +263,7 @@ export function FmeiPage(){
                     alt="botão de voltar para o topo/início da página"
                 />
             </div>
-        </div>
+            <GlobalStyle/>
+        </FmeiPageContainer>
     );
 };
