@@ -38,6 +38,7 @@ export const KeyIndicatorsContainer = styled.section`
             padding: 1rem;
             border-radius: 50%;
             background-color: #efefef;
+            box-shadow: var(--box-shadow-icon);
         }
     }
 
@@ -56,6 +57,10 @@ export const KeyIndicatorsContainer = styled.section`
     @media screen and (min-width: 1110px){
         .organizerBox{
             max-width: 100rem;
+        }
+
+        section{
+            max-width: 30rem;
         }
     }
 `;

@@ -81,10 +81,10 @@ export const Introduction = styled.header`
 
     a{
         border: 1px solid var(--white);
-        padding: 3rem 6rem;
+        padding: 3rem 7rem;
         border-radius: 4rem;
         color: var(--white);
-        font-weight: bold;
+        font-weight: 900;
         transition: .5s ease;
     }
 

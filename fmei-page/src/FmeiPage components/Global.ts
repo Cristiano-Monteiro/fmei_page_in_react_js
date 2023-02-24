@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 62.5%;
         --linear-gradient: linear-gradient(to bottom,#01015c, #0505f7);
         --box-shadow: 9px 9px 10px lightgray;
+        --box-shadow-icon: 3px 3px 10px lightgray;
         // Project Colors
         --main-color: #00008a;
         --secondary-color: #0505f7;

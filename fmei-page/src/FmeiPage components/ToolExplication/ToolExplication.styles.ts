@@ -54,6 +54,7 @@ export const LogoAndText = styled.div`
         background-color: var(--dark-gray);
         border-radius: 50%;
         padding: 1rem;
+        box-shadow: var(--box-shadow-icon);
     }
 
     h2{
