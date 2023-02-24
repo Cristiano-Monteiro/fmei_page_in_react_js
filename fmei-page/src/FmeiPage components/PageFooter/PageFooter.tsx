@@ -7,6 +7,7 @@ import FacebookIcon from '../../assets/icons/facebook_icon.png';
 
 export function PageFooter(){
     const currentYear = new Date().getFullYear();
+    
     return(
         <Footer>
             <EarlyAccess>
@@ -44,7 +45,7 @@ export function PageFooter(){
                     />
                 </a>
             </SocialMedias>
-            <p>
+            <p className="copyright">
                 Copyright ©{currentYear} All rights reserved. This template is made by Katu D.V
             </p>
         </Footer>

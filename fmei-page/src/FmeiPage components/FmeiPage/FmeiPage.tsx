@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { GlobalStyle } from '../Global';
 import { 
     FmeiPageContainer, 
@@ -9,7 +11,7 @@ import {
     LogoFmei,
     ScreenshotDashboardFmei,
     KeyIndicatorsText,
-    UpButton
+    BttnToTop
 } from './FmeiPage.styles';
 
 import { ToolExplication } from '../ToolExplication/ToolExplication';
@@ -21,9 +23,28 @@ import LogoFMEI from '../../assets/imgs/logo_facilita_mei.png';
 
 import ScreenshotDashboard from '../../assets/imgs/screenshot_dashboard.png';
 import MenuIcon from '../../assets/icons/icon_menu.svg';
-import IconToUp from '../../assets/icons/icon_to_up.svg';
+import UpArrowIcon from '../../assets/icons/up_arrow_icon.svg';
 
 export function FmeiPage(){
+    const [showBttnToTop, setShowBttnToTop] = useState(false);
+
+    function backToTop(){
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if(window.scrollY >= 600){
+                setShowBttnToTop(true);
+            } else {
+                setShowBttnToTop(false);
+            };
+        });
+    }, []);
+
     return(
         <FmeiPageContainer>    
             <NavBar>
@@ -69,12 +90,14 @@ export function FmeiPage(){
             </KeyIndicatorsText>
             <KeyIndicators/>
             <PageFooter/>
-            <UpButton>
-                <img 
-                    src={IconToUp} 
-                    alt="botão de voltar para o topo/início da página"
-                />
-            </UpButton>
+            {showBttnToTop && (
+                <BttnToTop onClick={backToTop}>
+                    <img 
+                        src={UpArrowIcon} 
+                        alt="botão de voltar para o topo/início da página"
+                    />
+                </BttnToTop>
+            )}
             <GlobalStyle/>
         </FmeiPageContainer>
     );

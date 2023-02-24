@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const FmeiPageContainer = styled.div`
     width: 100%;
@@ -23,11 +23,33 @@ export const LogoKatuDV = styled.div`
 export const MenuButton = styled.div`
     width: max-content;
     cursor: pointer;
+
+    @media screen and (min-width: 825px) {
+        display: none;
+    }
 `;
 
 export const MenuOptions = styled.div`
-    border: 2px solid black;
     display: none;
+    gap: 1.5rem;
+
+    a{
+        border: 1px solid var(--white);
+        color: var(--white);
+        padding: 2rem 3.5rem;
+        border-radius: 4rem;
+        font-weight: 900;
+        transition: all .5s ease;
+    }
+
+    a:hover{
+        background-color: var(--white);
+        color: var(--main-color);
+    }
+
+    @media screen and (min-width: 825px){
+        display: flex;
+    }
 `;
 
 export const Introduction = styled.header`
@@ -37,16 +59,20 @@ export const Introduction = styled.header`
     background-image: var(--linear-gradient);
     color: var(--white);
     text-align: center;
+    position: relative;
+    padding: 0 0 20rem;
 
     .container{
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.5rem;
         align-items: center;
-        border: 2px solid black;
-        width: 65%;
-        max-width: 55rem;
+        width: 35rem;
         padding-top: 2rem;
+    }
+
+    h1{
+        font-size: 4rem;
     }
 
     .headerText{
@@ -54,8 +80,8 @@ export const Introduction = styled.header`
     }
 
     a{
-        border: 2px solid var(--white);
-        padding: 2.5rem 4.5rem;
+        border: 1px solid var(--white);
+        padding: 3rem 6rem;
         border-radius: 4rem;
         color: var(--white);
         font-weight: bold;
@@ -66,15 +92,37 @@ export const Introduction = styled.header`
         background-color: var(--white);
         color: var(--main-color);
     }
+
+    @media screen and (min-width: 825px) {
+        .container{
+            width: 55rem;
+        }
+
+        h1{
+            font-size: 5rem;
+        }
+    }
 `;
 
 export const LogoFmei = styled.div`
     width: 70%;
-    max-width: 28rem;
+    max-width: 22rem;
 `;
 
 export const ScreenshotDashboardFmei = styled.div`
-    border: 2px solid black;
+    position: absolute;
+    bottom: -12rem;
+    width: 46rem;
+
+    @media screen and (min-width: 825px) {
+        bottom: -25rem;
+        width: 70rem;
+    }
+
+    @media screen and (min-width: 1024px) {
+        bottom: -35rem;
+        width: 85rem;
+    }
 `;
 
 export const KeyIndicatorsText = styled.div`
@@ -87,25 +135,40 @@ export const KeyIndicatorsText = styled.div`
     justify-content: center;
 
     h2{
+        width: 45rem;
         color: var(--white);
         text-align: center;
         text-shadow: 1rem 0.6rem 1.3rem #000;
         line-height: 3.5rem;
     }
+
+    @media screen and (min-width: 825px) {
+        h2{
+            width: 60rem;
+            font-size: 4rem;
+            line-height: 5rem;
+        }
+    }
 `;
 
-export const UpButton = styled.div`
+const BttnToTopAnimation = keyframes`
+    from{opacity: 0;}
+    to{opacity: .5;}
+`;
+
+export const BttnToTop = styled.div`
     border-radius: 50%;
     padding: .5rem;
     width: 5rem;
     height: 5rem;
     background-color: var(--secondary-color);
     cursor: pointer;
-    opacity: .5;
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
-    transition: all .5s ease;
+    opacity: .5;
+    transition: opacity .5s ease;
+    animation: ${BttnToTopAnimation} .5s ease-in-out;
 
     &:hover{
         opacity: 1;

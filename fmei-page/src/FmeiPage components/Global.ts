@@ -12,12 +12,13 @@ export const GlobalStyle = createGlobalStyle`
     :root{
         font-size: 62.5%;
         --linear-gradient: linear-gradient(to bottom,#01015c, #0505f7);
-        --border-radius: 20px 20px 0 0;
+        --box-shadow: 9px 9px 10px lightgray;
         // Project Colors
         --main-color: #00008a;
         --secondary-color: #0505f7;
         --white: #fff;
         --light-gray: #f3f3f377;
+        --dark-gray: #efefef;
     }
 
     body{

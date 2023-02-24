@@ -1,4 +1,4 @@
-import { LogoAndText, ToolExplicationContainer } from './ToolExplication.styles';
+import { IllustrativeImage, LogoAndText, ScreenshotMobile, ToolExplicationContainer } from './ToolExplication.styles';
 
 import ScreenshotDashboardMobile from '../../assets/imgs/screenshot_dashboard_mobile.png';
 
@@ -25,12 +25,12 @@ export function ToolExplication(){
                         O que podem inferir? Várias informações são perdidas.
                     </p>
                 </LogoAndText>
-                <div className="imagem_ilustrativa">
+                <IllustrativeImage>
                     <img 
                         src={IllustrativeImage1} 
                         alt="imagens de tabelas de dados e de um funcionario"
                     />
-                </div>
+                </IllustrativeImage>
             </section>
             <section>
                 <LogoAndText>
@@ -48,20 +48,20 @@ export function ToolExplication(){
                         instalação de um software que necessita de treinamento.
                     </p>
                 </LogoAndText>
-                <div className="imagem_ilustrativa">
+                <IllustrativeImage>
                     <img 
                         src={IllustrativeImage2} 
                         alt="imagem de um gráfico ilustrativo e de duas pessoas conversando."
                     />
-                </div>
+                </IllustrativeImage>
             </section>
             <section>
-                <div className="screenshot_versao_mobile_fmei">
+                <ScreenshotMobile>
                     <img 
                         src={ScreenshotDashboardMobile} 
                         alt="imagem da ferramenta Facilita MEI na versão mobile"
                     />
-                </div>
+                </ScreenshotMobile>
                 <LogoAndText>
                     <img 
                         src={TouchAppIcon} 

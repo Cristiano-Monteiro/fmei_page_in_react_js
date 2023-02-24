@@ -4,13 +4,24 @@ export const KeyIndicatorsContainer = styled.section`
     width: 100%;
     height: auto;
     padding: 2rem 2rem 21rem;
-    background-color: var(--light-gray);
+    background-color: var(--dark-gray);
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    
+    .organizerBox{
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+    }
 
     section{
-        border: 2px solid;
+        width: 100%;
+        max-width: 50rem;
         padding: 3.5rem 1.5rem;
         display: flex;
         flex-direction: column;
@@ -19,6 +30,7 @@ export const KeyIndicatorsContainer = styled.section`
         border-radius: 20px;
         text-align: left;
         line-height: 3rem;
+        box-shadow: var(--box-shadow);
 
         div{
             width: 7rem;
@@ -26,6 +38,24 @@ export const KeyIndicatorsContainer = styled.section`
             padding: 1rem;
             border-radius: 50%;
             background-color: #efefef;
+        }
+    }
+
+    @media screen and (min-width: 580px){
+        .organizerBox{
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        section{
+            max-width: 25rem;
+            height: 42rem;
+        }
+    }
+
+    @media screen and (min-width: 1110px){
+        .organizerBox{
+            max-width: 100rem;
         }
     }
 `;
