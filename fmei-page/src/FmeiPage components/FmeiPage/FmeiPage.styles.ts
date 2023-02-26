@@ -14,6 +14,7 @@ export const NavBar = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 `;
 
 export const LogoKatuDV = styled.div`
@@ -29,12 +30,35 @@ export const MenuButton = styled.div`
     }
 `;
 
-export const MenuOptions = styled.div`
-    display: none;
+const MenuOptionsAnimation = keyframes`
+    to{
+        opacity: 1;
+    }
+`;
+
+interface MenuOptionsProps{
+    showMenuOptions: boolean,
+}
+
+export const MenuOptions = styled.div<MenuOptionsProps>`
+    display: ${props => props.showMenuOptions ? 'flex' : 'none'};
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
     gap: 1.5rem;
+    position: absolute;
+    border-bottom: 1px solid #fff;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    animation: ${MenuOptionsAnimation} .5s ease forwards;
+    background-color: rgba(0,0,55,.2);
 
     a{
-        border: 1px solid var(--white);
+        border: 1px solid #fff;
         color: var(--white);
         padding: 2rem 3.5rem;
         border-radius: 4rem;
@@ -49,6 +73,11 @@ export const MenuOptions = styled.div`
 
     @media screen and (min-width: 825px){
         display: flex;
+        width: auto;
+        position: static;
+        padding: 0;
+        border: 0;
+        background-color: transparent;
     }
 `;
 
@@ -67,7 +96,8 @@ export const Introduction = styled.header`
         flex-direction: column;
         gap: 1.5rem;
         align-items: center;
-        width: 35rem;
+        width: 100%;
+        max-width: 35rem;
         padding-top: 2rem;
     }
 
@@ -93,9 +123,9 @@ export const Introduction = styled.header`
         color: var(--main-color);
     }
 
-    @media screen and (min-width: 825px) {
+    @media screen and (min-width: 705px) {
         .container{
-            width: 55rem;
+            max-width: 55rem;
         }
 
         h1{
@@ -105,23 +135,22 @@ export const Introduction = styled.header`
 `;
 
 export const LogoFmei = styled.div`
-    width: 70%;
+    width: 100%;
     max-width: 22rem;
 `;
 
 export const ScreenshotDashboardFmei = styled.div`
     position: absolute;
-    bottom: -12rem;
-    width: 46rem;
+    top: 75%;
+    width: 100%;
+    max-width: 46rem;
 
     @media screen and (min-width: 825px) {
-        bottom: -25rem;
-        width: 70rem;
+        max-width: 70rem;
     }
 
     @media screen and (min-width: 1024px) {
-        bottom: -35rem;
-        width: 85rem;
+        max-width: 85rem;
     }
 `;
 

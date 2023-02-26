@@ -103,6 +103,10 @@ export const EarlyAccess = styled.section`
         color: var(--main-color);
     }
 
+    p{
+        text-align: center;
+    }
+
     @media screen and (min-width: 840px){
         max-width: 70rem;
         padding: 5rem 3rem;

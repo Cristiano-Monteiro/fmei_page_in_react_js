@@ -31,6 +31,7 @@ export const KeyIndicatorsContainer = styled.section`
         text-align: left;
         line-height: 3rem;
         box-shadow: var(--box-shadow);
+        transition: box-shadow .5s ease;
 
         div{
             width: 7rem;
@@ -40,6 +41,10 @@ export const KeyIndicatorsContainer = styled.section`
             background-color: #efefef;
             box-shadow: var(--box-shadow-icon);
         }
+    }
+
+    section:hover{
+        box-shadow: 9px 9px 10px gray;
     }
 
     @media screen and (min-width: 580px){
@@ -55,12 +60,14 @@ export const KeyIndicatorsContainer = styled.section`
     }
 
     @media screen and (min-width: 1110px){
+        padding: 2rem 0 21rem;
+
         .organizerBox{
-            max-width: 100rem;
+            max-width: 110rem;
         }
 
         section{
-            max-width: 30rem;
+            max-width: 33rem;
         }
     }
 `;

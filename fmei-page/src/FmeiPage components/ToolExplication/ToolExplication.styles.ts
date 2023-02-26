@@ -20,6 +20,11 @@ export const ToolExplicationContainer = styled.section`
         flex-direction: column;
         align-items: center;
         box-shadow: var(--box-shadow);
+        transition: box-shadow .5s ease;
+    }
+
+    section:hover{
+        box-shadow: 9px 9px 10px gray;
     }
 
     @media screen and (min-width: 825px) {
@@ -37,7 +42,7 @@ export const ToolExplicationContainer = styled.section`
         padding: 32rem 2rem 2.5rem;
 
         section{
-            max-width: 90rem;
+            max-width: 98rem;
             height: max-content;
         }
     }

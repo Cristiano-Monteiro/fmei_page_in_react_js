@@ -27,6 +27,7 @@ import UpArrowIcon from '../../assets/icons/up_arrow_icon.svg';
 
 export function FmeiPage(){
     const [showBttnToTop, setShowBttnToTop] = useState(false);
+    const [showMenuOptions, setShowMenuOptions] = useState(false);
 
     function backToTop(){
         window.scrollTo({
@@ -53,10 +54,10 @@ export function FmeiPage(){
                         <img src={LogoKatu} alt="logo da startup Katu D.V" />
                     </a>
                 </LogoKatuDV>
-                <MenuButton>
+                <MenuButton onClick={() => setShowMenuOptions(!showMenuOptions)}>
                     <img src={MenuIcon} alt="botão de menu" />
                 </MenuButton>
-                <MenuOptions>
+                <MenuOptions showMenuOptions={showMenuOptions}>
                     <a href="https://www.katudv.com/">Página Inicial</a>
                     <a href="https://forms.gle/DkQ4BqauTgTkmpv56">Ter Acesso Antecipado</a>
                 </MenuOptions>
