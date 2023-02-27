@@ -1,4 +1,4 @@
-import { HtmlHTMLAttributes, ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { GlobalStyle } from '../Global';
 import { 
@@ -28,6 +28,8 @@ import UpArrowIcon from '../../assets/icons/up_arrow_icon.svg';
 export function FmeiPage(){
     const [showBttnToTop, setShowBttnToTop] = useState(false);
     const [showMenuOptions, setShowMenuOptions] = useState(false);
+    const [navbarFixedDisplay, setNavbarFixedDisplay] = useState(false);
+    const [navbarAnimationOn, setNavbarAnimationOn] = useState(false);
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -56,11 +58,24 @@ export function FmeiPage(){
         window.addEventListener('scroll', () => animationOnPage());
     }, []);
 
-    console.log(showMenuOptions)
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('nav');
+        if(navbar != undefined){
+            if(window.scrollY >= navbar.offsetHeight){
+                setNavbarFixedDisplay(true);
+                setNavbarAnimationOn(true);
+            } else {
+                setNavbarFixedDisplay(false);
+            };
+        };
+    });
 
     return(
         <FmeiPageContainer>    
-            <NavBar>
+            <NavBar 
+                navbarFixedDisplay={navbarFixedDisplay}
+                navbarAnimationOn={navbarAnimationOn}
+            >
                 <LogoKatuDV>
                     <a href="https://www.katudv.com/">
                         <img src={LogoKatu} alt="logo da startup Katu D.V" />

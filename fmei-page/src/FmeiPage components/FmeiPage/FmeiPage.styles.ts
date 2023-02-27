@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const elementShowingAnimation = keyframes`
     from{
@@ -11,7 +11,7 @@ const elementShowingAnimation = keyframes`
     }
 `;
 
-const elementDownAnimation = keyframes`
+const elementOpacityAnimation = keyframes`
     from{
         opacity: 0;
     }
@@ -26,12 +26,30 @@ const MenuOptionsAnimation = keyframes`
     }
 `;
 
+const NavBarAnimation = keyframes`
+    from{
+        display: none;
+        opacity: 0;
+        transform: translate3d(0, -18vh, 0);
+    }
+    to{
+        display: flex;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+`;
+
 export const FmeiPageContainer = styled.div`
     width: 100%;
     height: 100%;
 `;
 
-export const NavBar = styled.nav`
+interface NavbarProps {
+    navbarFixedDisplay: boolean,
+    navbarAnimationOn: boolean,
+};
+
+export const NavBar = styled.nav<NavbarProps>`
     width: 100%;
     height: 11rem;
     border-bottom: 1px solid var(--white);
@@ -41,10 +59,19 @@ export const NavBar = styled.nav`
     align-items: center;
     justify-content: space-between;
     position: relative;
-    z-index: 1;
-
+    z-index: 2;
     opacity: 0;
-    animation: ${elementDownAnimation} 2s ease-in-out forwards;
+    animation: ${elementOpacityAnimation} 2.5s ease-in-out forwards;
+
+    ${props => props.navbarAnimationOn && css`
+        animation: ${elementOpacityAnimation} .8s ease-in-out forwards;
+    `}
+
+    position: ${props => props.navbarFixedDisplay ? 'fixed' : 'absolute'};
+
+    ${props => props.navbarFixedDisplay && css`
+        animation: ${NavBarAnimation} .8s ease-in-out forwards;
+    `}
 `;
 
 export const LogoKatuDV = styled.div`
@@ -119,7 +146,7 @@ export const Introduction = styled.header`
     color: var(--white);
     text-align: center;
     position: relative;
-    padding: 0 0 20rem;
+    padding: 12rem 0 20rem;
 
     .container{
         display: flex;
