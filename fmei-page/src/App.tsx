@@ -1,4 +1,4 @@
-import { FmeiPage } from "./FmeiPage components/FmeiPage/FmeiPage";
+import { FmeiPage } from "./FmeiPageComponents/FmeiPage/FmeiPage";
 
 export default function App() {
   return (
