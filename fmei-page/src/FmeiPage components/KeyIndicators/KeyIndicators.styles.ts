@@ -31,7 +31,6 @@ export const KeyIndicatorsContainer = styled.section`
         text-align: left;
         line-height: 3rem;
         box-shadow: var(--box-shadow);
-        transition: box-shadow .5s ease;
 
         div{
             width: 7rem;

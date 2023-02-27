@@ -12,7 +12,7 @@ import TouchAppIcon from '../../assets/icons/touch_app_icon.svg';
 export function ToolExplication(){
     return(
         <ToolExplicationContainer>
-            <section>
+            <section data-animation='toRight'>
                 <LogoAndText>
                     <img 
                         src={BarChartIcon} 
@@ -32,7 +32,7 @@ export function ToolExplication(){
                     />
                 </IllustrativeImage>
             </section>
-            <section>
+            <section data-animation='toRight'>
                 <LogoAndText>
                     <img 
                         src={MonitoringIcon} 
@@ -55,7 +55,7 @@ export function ToolExplication(){
                     />
                 </IllustrativeImage>
             </section>
-            <section>
+            <section data-animation='toRight'>
                 <ScreenshotMobile>
                     <img 
                         src={ScreenshotDashboardMobile} 

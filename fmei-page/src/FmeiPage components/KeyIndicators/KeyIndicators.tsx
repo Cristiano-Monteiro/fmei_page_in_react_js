@@ -11,7 +11,7 @@ export function KeyIndicators(){
     return(
         <KeyIndicatorsContainer>
             <div className='organizerBox'>
-                <section>
+                <section data-animation='toRight'>
                     <div className="logo_ilustrativa">
                         <img 
                             src={BalanceIcon} 
@@ -24,7 +24,7 @@ export function KeyIndicators(){
                         categorizada.
                     </p>
                 </section>
-                <section>
+                <section data-animation='toRight'>
                     <div className="logo_ilustrativa">
                         <img 
                             src={TredingUpIcon} 
@@ -36,7 +36,7 @@ export function KeyIndicators(){
                         Tenha a visão do futuro do seu negócio baseada em seus dados históricos.
                     </p>
                 </section>
-                <section>
+                <section data-animation='toRight'>
                     <div className="logo_ilustrativa">
                         <img 
                             src={AccountBalanceIcon} 
@@ -48,7 +48,7 @@ export function KeyIndicators(){
                         Tenha a visão de quanto se foi gasto com cada tipo de despesa, taxas e afins.
                     </p>
                 </section>
-                <section>
+                <section data-animation='toRight'>
                     <div className="logo_ilustrativa">
                         <img 
                             src={QueryStatsIcon} 
@@ -60,7 +60,7 @@ export function KeyIndicators(){
                         Tenha a visão temporal de como está seu negócio.
                     </p>
                 </section>
-                <section>
+                <section data-animation='toRight'>
                     <div className="logo_ilustrativa">
                         <img 
                             src={LeaderboardIcon} 
@@ -72,7 +72,7 @@ export function KeyIndicators(){
                         Gráficos interativos e que melhor representam suas informações.
                     </p>
                 </section>
-                <section>
+                <section data-animation='toRight'>
                     <div className="logo_ilustrativa">
                         <img 
                             src={UpdateIcon} 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { HtmlHTMLAttributes, ReactNode, useEffect, useState } from 'react';
 
 import { GlobalStyle } from '../Global';
 import { 
@@ -29,13 +29,6 @@ export function FmeiPage(){
     const [showBttnToTop, setShowBttnToTop] = useState(false);
     const [showMenuOptions, setShowMenuOptions] = useState(false);
 
-    function backToTop(){
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    };
-
     useEffect(() => {
         window.addEventListener('scroll', () => {
             if(window.scrollY >= 600){
@@ -45,6 +38,25 @@ export function FmeiPage(){
             };
         });
     }, []);
+
+    useEffect(() => {
+        const animationElements = document.querySelectorAll('[data-animation]');
+
+        function animationOnPage(){
+            const windowTop = window.pageYOffset + (window.innerHeight * 0.70);
+            animationElements.forEach((element: any) => {
+                if(windowTop > element.offsetTop){
+                    element.classList.add('animate');
+                } else {
+                    element.classList.remove('animate');
+                };
+            });
+        };
+        
+        window.addEventListener('scroll', () => animationOnPage());
+    }, []);
+
+    console.log(showMenuOptions)
 
     return(
         <FmeiPageContainer>    
@@ -78,7 +90,7 @@ export function FmeiPage(){
                     <a href="https://forms.gle/DkQ4BqauTgTkmpv56">Clique Aqui</a>
                     <p>Oferta válida por tempo limitado.</p>
                 </div>
-                <ScreenshotDashboardFmei>
+                <ScreenshotDashboardFmei data-animation='toBottom'>
                     <img 
                         src={ScreenshotDashboard} 
                         alt="imagem da ferramenta Facilita MEI"
@@ -92,7 +104,7 @@ export function FmeiPage(){
             <KeyIndicators/>
             <PageFooter/>
             {showBttnToTop && (
-                <BttnToTop onClick={backToTop}>
+                <BttnToTop onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
                     <img 
                         src={UpArrowIcon} 
                         alt="botão de voltar para o topo/início da página"

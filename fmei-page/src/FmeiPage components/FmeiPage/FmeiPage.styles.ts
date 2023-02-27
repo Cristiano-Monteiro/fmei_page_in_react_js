@@ -1,5 +1,31 @@
 import styled, { keyframes } from "styled-components";
 
+const elementShowingAnimation = keyframes`
+    from{
+        opacity: 0;
+        transform: translate3d(0, -30px, 0);
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+`;
+
+const elementDownAnimation = keyframes`
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+`;
+
+const MenuOptionsAnimation = keyframes`
+    to{
+        opacity: 1;
+    }
+`;
+
 export const FmeiPageContainer = styled.div`
     width: 100%;
     height: 100%;
@@ -10,11 +36,15 @@ export const NavBar = styled.nav`
     height: 11rem;
     border-bottom: 1px solid var(--white);
     background-color: var(--main-color);
-    padding: 0 2rem;
+    padding: 0 3.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
+    z-index: 1;
+
+    opacity: 0;
+    animation: ${elementDownAnimation} 2s ease-in-out forwards;
 `;
 
 export const LogoKatuDV = styled.div`
@@ -30,18 +60,12 @@ export const MenuButton = styled.div`
     }
 `;
 
-const MenuOptionsAnimation = keyframes`
-    to{
-        opacity: 1;
-    }
-`;
-
 interface MenuOptionsProps{
     showMenuOptions: boolean,
 }
 
 export const MenuOptions = styled.div<MenuOptionsProps>`
-    display: ${props => props.showMenuOptions ? 'flex' : 'none'};
+    display: ${props => props.showMenuOptions ? 'flex' : 'none'};;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -52,23 +76,18 @@ export const MenuOptions = styled.div<MenuOptionsProps>`
     top: 100%;
     left: 0;
     width: 100%;
-    z-index: 1;
+    background-color: rgba(0,0,55,.4);
     opacity: 0;
-    animation: ${MenuOptionsAnimation} .5s ease forwards;
-    background-color: rgba(0,0,55,.2);
+    animation: ${MenuOptionsAnimation} .5s ease-in-out forwards;
 
     a{
-        border: 1px solid #fff;
-        color: var(--white);
+        background-color: var(--white);
+        color: var(--main-color);
+        border: 2px solid #fff;
         padding: 2rem 3.5rem;
         border-radius: 4rem;
         font-weight: 900;
-        transition: all .5s ease;
-    }
 
-    a:hover{
-        background-color: var(--white);
-        color: var(--main-color);
     }
 
     @media screen and (min-width: 825px){
@@ -78,6 +97,17 @@ export const MenuOptions = styled.div<MenuOptionsProps>`
         padding: 0;
         border: 0;
         background-color: transparent;
+        
+        a{
+            background-color: transparent;
+            color: var(--white);
+            transition: all .5s ease;
+        }
+
+        a:hover{
+            background-color: var(--white);
+            color: var(--main-color);
+        }
     }
 `;
 
@@ -102,25 +132,37 @@ export const Introduction = styled.header`
     }
 
     h1{
+        opacity: 0;
         font-size: 4rem;
+        animation: ${elementShowingAnimation} 1.5s ease .5s forwards;
     }
 
     .headerText{
         line-height: 3rem;
+        opacity: 0;
+        animation: ${elementShowingAnimation} 1.5s ease .7s forwards;
     }
 
     a{
-        border: 1px solid var(--white);
+        border: 2px solid var(--white);
         padding: 3rem 7rem;
         border-radius: 4rem;
         color: var(--white);
         font-weight: 900;
-        transition: .5s ease;
+        transition: all .5s ease;
+
+        opacity: 0;
+        animation: ${elementShowingAnimation} 1.5s ease .9s forwards;
     }
 
     a:hover{
         background-color: var(--white);
         color: var(--main-color);
+    }
+
+    p:last-child{
+        opacity: 0;
+        animation: ${elementShowingAnimation} 1.5s ease 1s forwards;
     }
 
     @media screen and (min-width: 705px) {
@@ -137,6 +179,7 @@ export const Introduction = styled.header`
 export const LogoFmei = styled.div`
     width: 100%;
     max-width: 22rem;
+    animation: ${elementShowingAnimation} 1.5s ease;
 `;
 
 export const ScreenshotDashboardFmei = styled.div`

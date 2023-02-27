@@ -26,9 +26,28 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 1.6rem;
         width: 100%;
         height: 100%;
+        background-color: var(--main-color);
     }
 
     img{
         width: 100%;
+    }
+
+    [data-animation]{
+        opacity: 0;
+        transition: all 1.2s ease;
+    }
+
+    [data-animation='toRight']{
+        transform: translate3d(-50px,0,0);
+    }
+
+    [data-animation='toBottom']{
+        transform: translate3d(0,-50px,0);
+    }
+
+    [data-animation].animate{
+        opacity: 1;
+        transform: translate3d(0px,0px,0px);
     }
 `;

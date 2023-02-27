@@ -20,7 +20,6 @@ export const ToolExplicationContainer = styled.section`
         flex-direction: column;
         align-items: center;
         box-shadow: var(--box-shadow);
-        transition: box-shadow .5s ease;
     }
 
     section:hover{
