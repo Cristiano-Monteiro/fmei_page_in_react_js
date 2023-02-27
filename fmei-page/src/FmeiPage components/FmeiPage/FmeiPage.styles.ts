@@ -211,7 +211,7 @@ export const LogoFmei = styled.div`
 
 export const ScreenshotDashboardFmei = styled.div`
     position: absolute;
-    top: 75%;
+    top: 78%;
     width: 100%;
     max-width: 46rem;
 
